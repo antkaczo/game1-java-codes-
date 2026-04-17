@@ -1,6 +1,7 @@
 public class Thug extends Enemy{
 
     int HP ;
+    int maxHp = HP;
     int max_demage;
     int secondattack;
     String name;
@@ -41,12 +42,13 @@ public class Thug extends Enemy{
         int heal = random.nextInt(20);
 
         HP+=heal;
+
         System.out.println(name + " odzyskał " + heal + " punktów życia");
         return HP;
     }
 
 
-    int firstattack(int max_demage){
+    int firstattack(){
         int demage = random.nextInt(max_demage);
         if (demage==0){
             System.out.println(name + " nie trafił");
@@ -57,8 +59,8 @@ public class Thug extends Enemy{
         return demage;
     }
 
-    int SecondAttack(int second_attack_max_demage){
-        int demage = random.nextInt(second_attack_max_demage);
+    int SecondAttack(){
+        int demage = random.nextInt(secondattack);
         if (demage==0){
             System.out.println(name + " nie trafił");
         }

@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class gra {
    public static PrintTxt print = new PrintTxt();
     public static boolean idzdalej=false;
+     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) throws InterruptedException, IOException {
 
         Player gracz = new Player(100,50,0,0);
@@ -19,8 +20,8 @@ public class gra {
        print.PrintTxt("Budzisz się w środku dębowego lasu. Przed sobą widzisz dwie ścieżki.\n" +
                 "Jedna prowadzi w lewo druga w prawo. Którą wybierzesz?\n" +
                 "1 - w lewo\n" +
-                "2 - w prawo\n",0);
-        Scanner scanner = new Scanner(System.in);
+                "2 - w prawo\n",225);
+
 
         int wybór= scanner.nextInt();
        while (1==1){
@@ -33,19 +34,22 @@ public class gra {
             if (wybór==0){
                 JajoWielkanocne(gracz.HP,gracz.Mana);
                 break;}
-
+            if (wybór!=1&&wybór!=2&&wybór!=0){
                 System.out.println("nie ma takiej opcji proszę wprowadzić poprawną opcje");
-                wybór=scanner.nextInt();
+                wybór=scanner.nextInt();}
         }
+
         print.PrintTxt("Podążałeś dalej leśną ścieżką aż dotarłeś do rozdroża.\n",225);
         Thread.sleep(500);
-        print.PrintTxt("Gdy rozglądałeś się po okolicy zauważyłeś drogowskaz.\n Wskazuje on dwie drogi.\n Jedną do miasta. \n Drugą na polanę.\n Którą z nich chesz podążać\n 1 - do miasta\n 2 - na polanę",225);
-         wybór = scanner.nextInt();
+        print.PrintTxt("Gdy rozglądałeś się po okolicy zauważyłeś drogowskaz.\n Wskazuje on dwie drogi.\n Jedną do miasta. \n Drugą na polanę.\n Którą z nich chesz podążać\n 1 - do miasta\n 2 - na polanę\n",225);
+        Thread.sleep(500);
+
+        int hwdp= scanner.nextInt();
         while (1==1){
-            if (wybór==1){
+            if (hwdp==1){
                 miasto(gracz);
                 }
-            if (wybór==2){
+            if (hwdp==2){
                 polana(gracz);
                 }
             if (idzdalej){
@@ -53,11 +57,11 @@ public class gra {
             }
 
 
-            else {System.out.println("nie ma takiej opcji proszę wprowadzić poprawną opcje");
-            wybór=scanner.nextInt();}
-           if (wybór==1||wybór==2){
+            else if (hwdp!=1&&hwdp!=2) {System.out.println("nie ma takiej opcji proszę wprowadzić poprawną opcje");
+            hwdp=scanner.nextInt();}
+           if (hwdp==1||hwdp==2){
                print.PrintTxt("Dokąd chesz się teraz udać\n 1 - miasto \n2 - polana",225);
-               wybór = scanner.nextInt();
+               hwdp = scanner.nextInt();
            }
         }
         Las FORSET = new Las();
@@ -114,7 +118,7 @@ public class gra {
             }
 
         }
-        scanner.close();
+
 
 
             if (HP<=0){
@@ -127,7 +131,6 @@ public class gra {
     static void ogr(int HP, int mana)throws InterruptedException{
         int EnemyHP = 150;
         print.PrintTxt("Podążałęś wzdłóż wybranej ścieżki aż twoją drogę zagrodził ogr",225);
-        Scanner  scanner = new Scanner(System.in);
         while (EnemyHP>0 && HP>0){
             System.out.println("twoje HP wynosi " + HP
                     + "\nmasz " + mana + " many"
@@ -173,7 +176,7 @@ public class gra {
                 System.exit(0);}
 
         }
-        scanner.close();
+
 
 
         print.PrintTxt("Gratulacje!!!\n Pokonałeś ogra. Możesz dalej podążać swoją drogą",225);}
@@ -188,7 +191,7 @@ static void miasto(Player gracz) throws InterruptedException {
             "Po zauważeniu licznej ilości straganów rybackich wnioskujesz że w mieście powodzi się z połowami\n" +
             "Zauważasz też karczmę oraz stoisko wróźki.\n" +
             "Gdzie chesz się udać?\n 1- wybrzeże \n 2 - stragany rybackie\n 3- karczma\n 4 - stoisko wróźki\n 5- zawrócić i wyjść z miasta",150);
-    Scanner scanner = new Scanner(System.in);
+
     wybor1 = scanner.nextInt();
     while (1==1){
         if (wybor1==1){
@@ -214,14 +217,12 @@ static void miasto(Player gracz) throws InterruptedException {
             wybor1= scanner.nextInt();
 
         }
-        scanner.close();
     }
 }
 
 static void polana(Player gracz) throws InterruptedException {
    int test;
     int test1;
-    Scanner scanner = new Scanner(System.in);
     print.PrintTxt("Wkrosczyłeś na polanę. Widzisz jak ścieżka którą podążasz rozcina kwiecistą łąkę\n" +
             "Gdzie niespojrzysz widzisz kwiaty w najróźniejszych kolorach. Dostrzegasz że po lewej stronie\n" +
             "pośród kwiatów coś się porusza, zaś po prawej stronie widzisz górkę na szczycie której znajduje się\n" +
