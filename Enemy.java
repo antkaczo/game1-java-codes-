@@ -20,7 +20,7 @@ public class Enemy {
     }
 
     int SecondAttack(int second_attack_max_demage){
-        int demage = random.nextInt(second_attack_max_demage);
+        int demage = random.nextInt();
         if (demage==0){
             System.out.println(name + " nie trafił");
         }

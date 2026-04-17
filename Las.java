@@ -20,12 +20,11 @@ public class Las {
     Thug majster = new Thug("Młodzieniec z łukiem",17,10,65);
 
     public void Forest() throws InterruptedException {
-        System.out.println(gracz.sztylet);
-        System.out.println("Po opusczeniu łąki wszedłeś w las. Podczas podążania ścieżką\n" +
+       print.PrintTxt("Po opusczeniu łąki wszedłeś w las. Podczas podążania ścieżką\n" +
                 "widzisz skulonego żołdaka przy drodze.\n" +
                 "Czt chcesz z nim porozmawiać?\n" +
                 "1 - tak\n" +
-                "2 - nie");
+                "2 - nie",225);
         wybor=scanner.nextInt();
         if(wybor==1){
             print.PrintTxt("Trącasz żołdaka i próbujesz się od niego dowiedzieć co się stało.",225);
@@ -148,7 +147,7 @@ public class Las {
         int nozaction=0;
         boolean bowdefeat=false;
         boolean nozdeafeat=false;
-            while (noz.HP>0 || bow.HP>0 && gracz.HP>0) {
+            while (noz.HP>0 || bow.HP>0) {
                 if (noz.HP>0){
                     nozaction = los(3);
                     if (nozaction == 0) {
@@ -164,6 +163,13 @@ public class Las {
                         gracz.DemageTaken(demage, noz.name);
                 }
             }
+                System.out.print("Masz " + gracz.HP + " punktów życia \n" +
+                        "Masz " + gracz.Mana + " many\n");
+                if (noz.HP>0){
+                    System.out.print( "Męźczyzna w płaszczu ma " + noz.HP + " punktów życia\n");}
+                if (bow.HP>0) {
+                    System.out.print("Młodzieniec z łukiem ma " + bow.HP + " punktów życia\n");
+                }
                 System.out.println("Co zamierzasz zrobić?\n" +
                         "1 - zaatakować mieczem\n" +
                         "2 - uleczyć się\n" +
@@ -171,8 +177,13 @@ public class Las {
                 if (gracz.sztylet) {
                     System.out.println("4 - zatakować sztyletem");
                 }
+
                 wybor1= scanner.nextInt();
-                while (wybor1 !=1 && wybor1!=2&&wybor1!=3&&wybor1!=4) {
+                while (wybor1==4&& gracz.sztylet==false){
+                    System.out.println("Nie ma takiej opcji. Wybierz poprawną opcje");
+                    wybor1=scanner.nextInt();
+                }
+                while (wybor1 !=1 && wybor1!=2&&wybor1!=3) {
                     System.out.println("Nie ma takiej opcji. Wybierz poprawną opcje");
                     wybor1=scanner.nextInt();
                 }
@@ -225,7 +236,7 @@ public class Las {
                                 break;
                             }
                         }
-                        if (wybor1==4 && gracz.sztylet){
+                        if (wybor1==4 && gracz.sztylet==true){
                             if (wybor2==1){
                                 System.out.println("Dźgasz sztyletem mężczyznę w płaszczu");
                                 noz.DemageTaken(gracz.secondattack);
@@ -260,13 +271,10 @@ public class Las {
                         if (bowdefeat=false&&bow.HP<=0){
                             System.out.println("Młodzieniec pada");
                         }
-                System.out.print("Masz " + gracz.HP + " punktów życia \n" +
-                        "Masz " + gracz.Mana + " many\n");
-                        if (noz.HP>0){
-                            System.out.print( "Męźczyzna w płaszczu ma " + noz.HP + " punktów życia\n");}
-                        if (bow.HP>0) {
-                            System.out.print("Młodzieniec z łukiem ma " + bow.HP + " punktów życia\n");
+                        if (gracz.HP<=0){
+                            break;
                         }
+
 
             }
             if (bow.HP<=0 && noz.HP<=0){

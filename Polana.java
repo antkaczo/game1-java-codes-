@@ -33,10 +33,10 @@ public class Polana {
             if (smth==1){
                 printer.PrintTxt("Kładziesz się na ziemi.",225);
                 Thread.sleep(1000);
-                System.out.println("Zaczynasz przyglądać się chmurom\n" +
-                        " i temu jak powolnie płyną po niebie");
+                printer.PrintTxt("Zaczynasz przyglądać się chmurom\n" +
+                        " i temu jak powolnie płyną po niebie",225);
                 Thread.sleep(2500);
-                System.out.println("Od takiego leżenia robisz się senny.");
+                printer.PrintTxt("Od takiego leżenia robisz się senny.",225);
                 Thread.sleep(2500);
                 System.out.println("Zasypiasz");
                 Thread.sleep(5000);
@@ -60,7 +60,7 @@ public class Polana {
                 break;
             }
             if (smth==2){
-                System.out.println("Schodzisz z górki i wracasz na ścieżkę");
+                printer.PrintTxt("Schodzisz z górki i wracasz na ścieżkę",225);
                 break;
             }else {
                 System.out.println("Nie ma takiej opcji. Proszę wybrać poprawną");
@@ -80,7 +80,7 @@ public class Polana {
                     "2 - nie",175);
             smth = scanner.nextInt();
             if (smth ==1){
-                System.out.println("Próbujesz się powoli oddalić od wilka");
+                printer.PrintTxt("Próbujesz się powoli oddalić od wilka",225);
                 for (int i =0; i <15;i++){
                     System.out.print(".");
                     Thread.sleep(500);
@@ -109,13 +109,13 @@ public class Polana {
                         "w twoim kierunku",225);
                 Thread.sleep(2000);
                 if (los(2)==1){
-                    System.out.println("Na twoje sczęście udało ci się sparować jego atak, lecz\n" +
-                            "teraz musisz z nim walczyć");
+                    printer.PrintTxt("Na twoje sczęście udało ci się sparować jego atak, lecz\n" +
+                            "teraz musisz z nim walczyć",225);
                 }else{
-                    System.out.println("Niestety nie udało ci się sparować jego ataku. Wilk gryzie cię w\n" +
+                    printer.PrintTxt("Niestety nie udało ci się sparować jego ataku. Wilk gryzie cię w\n" +
                             "przedramie, po czym odskakuje. Niestety musisz się z nim teraz zmierzyć\n\n" +
                             "Tracisz 10 punktów życia\n" +
-                            "Twój mnożnik obrażeń wynosi teraz 0.7");
+                            "Twój mnożnik obrażeń wynosi teraz 0.7",225);
                     gracz.HP-=10;
                     gracz.player_effects=0.7;
                 }
