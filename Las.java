@@ -6,7 +6,7 @@ public class Las {
     int wybor;
     int wybor1;
     int wybor2;
-    int CzySpot=1;
+    int CzySpot=0;
     int wynik;
 
     Scanner scanner=new Scanner(System.in);
