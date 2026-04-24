@@ -5,9 +5,11 @@ public class gra {
    public static PrintTxt print = new PrintTxt();
     public static boolean idzdalej=false;
      static Scanner scanner = new Scanner(System.in);
+    static Player gracz = new Player(100,50,0,0);
+    static Polana polana = new Polana(gracz);
     public static void main(String[] args) throws InterruptedException, IOException {
 
-        Player gracz = new Player(100,50,0,0);
+
 
 
         System.out.println("-------------------------\n" +
@@ -16,6 +18,7 @@ public class gra {
                 "|        Pobudka        |\n" +
                 "|                       |\n" +
                 "-------------------------");
+        Thread.sleep(150);
 
        print.PrintTxt("Budzisz się w środku dębowego lasu. Przed sobą widzisz dwie ścieżki.\n" +
                 "Jedna prowadzi w lewo druga w prawo. Którą wybierzesz?\n" +
@@ -24,7 +27,7 @@ public class gra {
 
 
         int wybór= scanner.nextInt();
-       while (1==1){
+       /*while (1==1){
             if (wybór==1){
                 goblin(gracz.HP, gracz.Mana);
                 break;}
@@ -67,6 +70,15 @@ public class gra {
         Las FORSET = new Las();
         FORSET.Las(gracz);
         FORSET.Forest();
+        System.out.println("-------------------------\n" +
+                "|                       |\n" +
+                "|         Akt 2         |\n" +
+                "|        Podzamcze      |\n" +
+                "|                       |\n" +
+                "-------------------------");
+        Thread.sleep(15000);*/
+        PoleBitwy POLEBITWY= new PoleBitwy(gracz, Miasto.tattocheck, polana.CzyWalczyl);
+        POLEBITWY.polebitwy();
 
 
     }
@@ -78,7 +90,7 @@ public class gra {
         print.PrintTxt("Podążałęś wzdłóż wybranej ścieżki aż na twoej drodze stanął goblin",225);
         Scanner  scanner = new Scanner(System.in);
         while (EnemyHP>0 && HP>0) {
-            System.out.println("twoje HP wynosi " + HP
+            System.out.println("twoje HP wynosi "
                     + "/100\n" +
                     "masz " + mana + "/50 many" +
                     "\n HP goblina wynosi " + EnemyHP);
@@ -181,11 +193,11 @@ public class gra {
 
         print.PrintTxt("Gratulacje!!!\n Pokonałeś ogra. Możesz dalej podążać swoją drogą",225);}
 
-
+    static miasto Miasto = new miasto();
 static void miasto(Player gracz) throws InterruptedException {
 
     int wybor1;
-        miasto Miasto = new miasto();
+
     print.PrintTxt("Wkroczyłeś do miasta. Na środku miasta znajduje się plac na którym grajek przygrywa melodię.\n" +
             "W oddali widać brzeg do którego prowadzą kręte ulice. \n" +
             "Po zauważeniu licznej ilości straganów rybackich wnioskujesz że w mieście powodzi się z połowami\n" +
@@ -232,7 +244,7 @@ static void polana(Player gracz) throws InterruptedException {
             "2 - pójść na górkę\n" +
             "3 - podażać dalej ścieżką\n" +
             "4 - zawrócić",150);
-    Polana polana = new Polana(gracz);
+
         test = scanner.nextInt();
         while (1==1){
             if (test==1){

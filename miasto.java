@@ -9,9 +9,11 @@ public class miasto {
     int wybor1;
     int wybor2;
     int EnemyAction;
+   public boolean tattocheck = false;
     Random random = new Random();
     Thug oko = new Thug("Łotr z blizną na oku",25,10,60);
     Thug policzki = new Thug("Łotr z dwiema bliznami",30,12,75);
+
 
 
     boolean CzyByłWKarczmie=false;
@@ -363,6 +365,7 @@ public class miasto {
                         "2 - nie\n ",225);
                 wybor2= scanner.nextInt();
                 if (wybor2==1){
+                    tattocheck=true;
                     print.PrintTxt("Przykucasz i odkrywasz tatuaże na rękach męźczyzn. Jeden i drugi\n" +
                             "mają taki sam tatuaż. Przedstawia on czarnego smoka owiniętego wokół miecza.\n" +
                             "Nie masz pojęcia co on oznacza, ale czujesz że nie oznacza on nic dobrego",225);
@@ -659,8 +662,8 @@ public class miasto {
         int fireball;
         boolean CzyRzucalJuz=false;
         while (1==1){
-            System.out.println("Masz " + gracz.HP + " punktów życia\n" +
-                    "oraz " + gracz.Mana + " many\n" +
+            System.out.println("Masz " + gracz.HP +"/"+gracz.MaxHP+ " punktów życia\n" +
+                    "oraz " + gracz.Mana+"/"+gracz.MaxMana + " many\n" +
                     lotr.getName()+" ma " + lotr.HP +  " punktów życia");
             System.out.println("Co zamierzasz teraz zrobić?\n" +
                     "1 - zaatakować mieczem\n" +
