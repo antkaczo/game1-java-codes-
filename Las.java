@@ -6,18 +6,19 @@ public class Las {
     int wybor;
     int wybor1;
     int wybor2;
-    int CzySpot=0;
+    int CzySpot=1;
     int wynik;
 
     Scanner scanner=new Scanner(System.in);
     Random random= new Random();
+    Random random1 = new Random();
 
     void Las(Player gracz){
         this.gracz=gracz;
     }
 
     Thug plaszcz = new Thug("Męźczyzna w płaszczu",15,5,75);
-    Thug majster = new Thug("Młodzieniec z łukiem",17,10,65);
+    Thug lucznik = new Thug("Młodzieniec z łukiem",17,10,65);
 
     public void Forest() throws InterruptedException {
        print.PrintTxt("Po opusczeniu łąki wszedłeś w las. Podczas podążania ścieżką\n" +
@@ -125,7 +126,7 @@ public class Las {
             print.PrintTxt("Mówiłem ci abyś wypierdalał. Skoro nie słuhcałeś to ja ci to wytłumaczę.\n" +
                     "Majster szykuj łuk",225);
             System.out.println("Męźczyzna w płasczu wyciąga nóż z pod kieszeni, a wyższy facet podnosi z ziemi łuk i strzały");
-            walka(plaszcz,majster,gracz);
+            walka(plaszcz,lucznik,gracz);
             print.PrintTxt("Podczas gdy ciała poległy przeciwników upadają na ziemię uświadamiasz sobie że podczasz\n" +
                     "gdy wy walczyliście cała reszta ludzi zdążyła uciec",225);
             print.PrintTxt("Postanawiasz wrócić na ścieżkę bo wolisz nie ryzykować powrotu pozostałych",225);
@@ -163,8 +164,8 @@ public class Las {
                         gracz.DemageTaken(demage, noz.name);
                 }
             }
-                System.out.print("Masz " + gracz.HP + " punktów życia \n" +
-                        "Masz " + gracz.Mana + " many\n");
+                System.out.print("Masz " + gracz.HP +"/" +gracz.MaxHP + " punktów życia \n" +
+                        "Masz " + gracz.Mana +"/"+gracz.MaxMana +" many\n");
                 if (noz.HP>0){
                     System.out.print( "Męźczyzna w płaszczu ma " + noz.HP + " punktów życia\n");}
                 if (bow.HP>0) {
@@ -247,10 +248,12 @@ public class Las {
                             break;
                         }}
                         if (bow.HP>0){
-                            bowaction=los(3);
+                            bowaction=random1.nextInt(3);
                             if (bowaction==0){
+                                bowaction=0;
                                 System.out.println("Młodzian strzela do ciebie z łuku");
-                                gracz.DemageTaken(bow.Bow(),bow.name);
+                                demage=bow.firstattack();
+                                gracz.DemageTaken(demage, bow.name);
 
                             }else if (bowaction==1){
                                 System.out.println("Łucznik leczy się");

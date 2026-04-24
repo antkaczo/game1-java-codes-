@@ -7,6 +7,8 @@ public class Player {
     static int HP;
     int Mana;
     int zloto;
+    int MaxHP;
+    int MaxMana;
     int srebro;
     boolean sztylet=false;
     int secondattack;
@@ -17,9 +19,11 @@ public class Player {
 
     public Player(int HP, int mana, int zloto,int srebro) {
         this.HP = HP;
+        this.MaxHP=HP;
         this.Mana = mana;
         this.zloto = zloto;
         this.srebro=srebro;
+        this.MaxMana=Mana;
     }
 
     public int PlayerAttack() {
@@ -39,8 +43,8 @@ public class Player {
 
     public int leczenie() {
         HP += 20;
-        if (HP > 100) {
-            HP = 100;
+        if (HP > MaxHP) {
+            HP = MaxHP;
         }
         return HP;
     }

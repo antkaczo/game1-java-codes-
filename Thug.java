@@ -1,7 +1,10 @@
+import java.util.Random;
+
 public class Thug extends Enemy{
 
     int HP ;
-    int maxHp = HP;
+    Random random1 = new Random();
+    int maxHp;
     int max_demage;
     int secondattack;
     String name;
@@ -11,6 +14,7 @@ public class Thug extends Enemy{
         this.max_demage=Max_demage;
         this.secondattack=SecondDemage;
         this.HP=hp;
+        this.maxHp=hp;
     }
 
     public String getName(){return name;}
@@ -42,6 +46,9 @@ public class Thug extends Enemy{
         int heal = random.nextInt(20);
 
         HP+=heal;
+        if (HP>maxHp){
+            HP=maxHp;
+        }
 
         System.out.println(name + " odzyskał " + heal + " punktów życia");
         return HP;
@@ -49,7 +56,7 @@ public class Thug extends Enemy{
 
 
     int firstattack(){
-        int demage = random.nextInt(max_demage);
+        int demage = random.nextInt(max_demage+1);
         if (demage==0){
             System.out.println(name + " nie trafił");
         }
@@ -60,7 +67,9 @@ public class Thug extends Enemy{
     }
 
     int SecondAttack(){
-        int demage = random.nextInt(secondattack);
+        int demage = random.nextInt(secondattack+1);
+        while (demage>secondattack || demage<0){
+            demage= random.nextInt(secondattack+1);}
         if (demage==0){
             System.out.println(name + " nie trafił");
         }
@@ -70,17 +79,6 @@ public class Thug extends Enemy{
         return demage;
     }
 
-    int Bow(){
-        if (random.nextInt(10)>2){
-            int demage = random.nextInt(max_demage);
-            while (demage==0){
-                demage=random.nextInt(max_demage);
-            }
-            System.out.println("Strzała wystrzelona z łuku zadaje ci " + demage+ " punktów obrażeń");
-            return demage;
-        }else {
-            System.out.println("Strzała nie trafiłą");
-            return 0;
-        }
+
     }
-}
+

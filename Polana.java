@@ -11,6 +11,7 @@ public class Polana {
     boolean CzyWalczyl=false;
     boolean CoinFound=false;
 
+
     Wolf wilk = new Wolf("Wilk",25,10,55);
     public Polana(Player Gracz){
         this.gracz=Gracz;
@@ -148,8 +149,8 @@ public class Polana {
         int tury=0;
         int fireball;
         while (gracz.HP>0 && wilk.HP>0){
-            System.out.println("Masz " + gracz.HP + " punktów życia \n" +
-                    "Masz " + gracz.Mana + " many\n" +
+            System.out.println("Masz " + gracz.HP +"/"+gracz.MaxHP +" punktów życia \n" +
+                    "Masz " + gracz.Mana +"/"+gracz.MaxMana+ " many\n" +
                     "Wilk ma " + wilk.HP + " punktów życia\n" +
                     "Co zamierzasz zrobić?\n" +
                     "1 - zaatakować mieczem\n" +
@@ -172,6 +173,7 @@ public class Polana {
             }
         }
         if (wolf_action==1){
+            wolf_action=1;
             System.out.println("Wilk drapie cię pazurem");
             gracz.DemageTaken(wilk.SecondAttack(wilk.secondattack), wilk.getName());
             //Coded by Antkaczo

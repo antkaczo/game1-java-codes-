@@ -45,8 +45,8 @@ public class Wolf extends Enemy{
     }
 
 
-    int firstattack(int max_demage){
-        int demage = random.nextInt(max_demage);
+    int firstattack(){
+        int demage = random.nextInt(max_demage+1);
         if (demage==0){
             System.out.println(name + " nie trafił");
         }
@@ -57,7 +57,10 @@ public class Wolf extends Enemy{
     }
 
     int SecondAttack(){
-        int demage = random.nextInt(secondattack);
+        int demage = random.nextInt(secondattack+1);
+        while (demage>secondattack || demage<0){
+            demage= random.nextInt(secondattack+1);
+        }
         if (demage==0){
             System.out.println(name + " nie trafił");
         }
