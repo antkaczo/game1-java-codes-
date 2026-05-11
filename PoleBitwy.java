@@ -272,7 +272,7 @@ public class PoleBitwy {
             Thread.sleep(1500);
             print.PrintTxt("Twoja wizja słabnie, wszystko zaczyna robić się czarne",250);
             Thread.sleep(3000);
-            print.PrintTxt("Słyszysz tylko sapanie konia, odgłosy jego hamowania i \n" +
+            print.PrintTxt("Słyszysz tylko sapanie konia, odgłosy jego hamowania, łamiącej się stali i \n" +
                     "męski głos, który coś krzyczy",250);
             Thread.sleep(5000);
             print.PrintTxt("Tracisz przytomność",250);
@@ -569,6 +569,8 @@ public class PoleBitwy {
             print.PrintTxt("Padasz na ziemie",250);
             Thread.sleep(1500);
             print.PrintTxt("Obraz zaczyna ci się rozmwyać",250);
+            Thread.sleep(1500);
+            print.PrintTxt("Widzisz jak męźczyzna łamie twój miecz",250);
             Thread.sleep(1500);
             print.PrintTxt("Słyszysz jeszcze ostatnią wypowiedź męźczyzny.\n" +
                     "Męźczyzna:\n" +
