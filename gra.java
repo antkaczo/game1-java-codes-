@@ -18,7 +18,7 @@ public class gra {
                 "|        Pobudka        |\n" +
                 "|                       |\n" +
                 "-------------------------");
-        Thread.sleep(15000);
+        Thread.sleep(150);
 
        print.PrintTxt("Budzisz się w środku dębowego lasu. Przed sobą widzisz dwie ścieżki.\n" +
                 "Jedna prowadzi w lewo druga w prawo. Którą wybierzesz?\n" +
@@ -27,7 +27,7 @@ public class gra {
 
 
         int wybór= scanner.nextInt();
-       while (1==1){
+       /*while (1==1){
             if (wybór==1){
                 goblin(gracz.HP, gracz.Mana);
                 break;}
@@ -78,7 +78,12 @@ public class gra {
                 "-------------------------");
         Thread.sleep(15000);
         PoleBitwy POLEBITWY= new PoleBitwy(gracz, Miasto.tattocheck, polana.CzyWalczyl);
-        POLEBITWY.polebitwy();
+        POLEBITWY.polebitwy();*/
+      /*  Loch loch = new Loch();
+        loch.cela();*/
+        Court court = new Court();
+        court.salasadowa();
+
 
 
     }
